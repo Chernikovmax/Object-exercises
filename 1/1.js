@@ -1,4 +1,23 @@
-var library = [
+class Library {
+  constructor(arr) {
+    this.array = arr;
+  }
+  checkStatus() {
+    let booksInfo = this.array.map(function(currentObj) {
+      if (currentObj.readingStatus === true) {
+        return "I've already read a book " + "'" + currentObj.title +
+        "'" + ", written by: " + currentObj.author + ".";
+      }
+      if (currentObj.readingStatus !== true) {
+        return "I'm going to read a book " + "'" + currentObj.title +
+        "'" + ", written by: " + currentObj.author + ".";
+      }
+    }).join("\n");
+    return booksInfo;
+  }
+}
+
+const books = new Library([
    {
        author: 'Bill Gates',
        title: 'The Road Ahead',
@@ -13,18 +32,6 @@ var library = [
        author: 'Suzanne Collins',
        title:  'Mockingjay: The Final Book of The Hunger Games',
        readingStatus: false
-   }];
+   }]);
 
-function booksInformation(arr) {
-  let booksInfo = arr.map(function(currentObj) {
-    if (currentObj.readingStatus === true) {
-      return "I've already read a book " + "'" + currentObj.title + "'" + ", written by: " + currentObj.author + "."
-    }
-    if (currentObj.readingStatus !== true) {
-      return "I'm going to read a book " + "'" + currentObj.title + "'" + ", written by: " + currentObj.author + "."
-    }
-  }).join("\n");
-  return booksInfo;
-}
-
-console.log(booksInformation(library));
+console.log(books.checkStatus());
