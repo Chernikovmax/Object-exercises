@@ -1,10 +1,10 @@
-function allKeys(obj) {
+function allKeyValues(obj) {
   if (typeof obj === "object") {
-    let keys = [];
+    let values = [];
     for (let key in obj) {
-      keys.push(key + ": " + obj[key]);
-    } return keys;
-  } else return console.error("You should push an object to print it's keys!");
+      values.push(obj[key]);
+    } return values;
+  } else return console.error("You should push an object to print it's key values!");
 }
 
 class Someone {
@@ -18,4 +18,4 @@ class Someone {
 
 const sara = new Someone("Sarah", "Paulson", 22)
 
-console.log(allKeys(sara));
+console.log(allKeyValues(sara));
